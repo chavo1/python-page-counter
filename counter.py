@@ -2,9 +2,9 @@
 
 import time
 import redis
-from flask import Flask
+from flask import Flask, render_template
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="templates")
 cache = redis.Redis(host='localhost', port=6379)
 
 def get_hit_count():
@@ -18,10 +18,11 @@ def get_hit_count():
             retries -= 1
             time.sleep(0.5)
 
-@app.route('/')
+@app.route("/", methods = ["GET" , "POST"])
 def hit():
     count = get_hit_count()
-    return 'I have been hit (%i) times\n' % int(count)
+
+    return render_template('index.html', count = ' (%i) \n' % int(count))
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)
