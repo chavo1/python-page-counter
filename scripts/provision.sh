@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
-set -ex
+# update db
 apt update
-
 # install python redis flask
 apt install software-properties-common -y
 add-apt-repository ppa:deadsnakes/ppa
@@ -13,7 +12,6 @@ pip3 install -U Flask
 pip3 install redis
 
 cat <<EOF > /etc/systemd/system/flask.service
-
 [Unit]
 Description=Flask
 After=network-online.target
@@ -27,9 +25,6 @@ ExecStart=/usr/bin/python3 /vagrant/counter.py
 WantedBy=multi-user.target
 EOF
 systemctl daemon-reload
-
-sleep 5
-
 systemctl start flask.service
 
-set +x
+echo Please use to connect to the application: http://`hostname -I | sed -E 's/^\s*\S+\s+(\S+).*/\1/'`:5000

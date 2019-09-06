@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    @keyframes gradientBG {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+    
+    body {
+        font-family: "Gill Sans", "Gill Sans MT", Sans-Serif;
+        margin: 0;
+        width: 100%;
+        height: 100vh;
+        font-family: "Exo", sans-serif;
+        color: #fff;
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+    }
+    
+    .container {
+        width: 400px;
+        margin: 120px auto 0px auto;
+    }
+    
+    h1 {
+        width: 400px;
+        margin-bottom: 12px;
+        text-align: center;
+        color: #ffffff;
+        font-size: 40px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid #ff4b33;
+        text-shadow: 2px 3px #000000;
+    }
+    
+    h2 {
+        width: 400px;
+        margin-bottom: 12px;
+        text-align: center;
+        color: #ff33f5;
+        font-size: 30px;
+        padding-bottom: 8px;
+        text-shadow: 2px 3px #000000;
+    }
+    
+    img:hover {
+        animation: shake 0.5s;
+        animation-iteration-count: infinite;
+    }
+    
+    input {
+        border: none;
+        background: #404040;
+        color: #ffffff !important;
+        font-weight: 100;
+        padding: 20px;
+        text-transform: uppercase;
+        border-radius: 6px;
+        display: inline-block;
+        transition: all 0.3s ease 0s;
+    }
+    
+    input:hover {
+        color: #404040 !important;
+        font-weight: 700 !important;
+        letter-spacing: 3px;
+        background: none;
+        -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+        -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+        transition: all 0.3s ease 0s;
+    }
+    
+    @keyframes shake {
+        0% {
+            transform: translate(1px, 1px) rotate(0deg);
+        }
+        10% {
+            transform: translate(-1px, -2px) rotate(-1deg);
+        }
+        20% {
+            transform: translate(-3px, 0px) rotate(1deg);
+        }
+        30% {
+            transform: translate(3px, 2px) rotate(0deg);
+        }
+        40% {
+            transform: translate(1px, -1px) rotate(1deg);
+        }
+        50% {
+            transform: translate(-1px, 2px) rotate(-1deg);
+        }
+        60% {
+            transform: translate(-3px, 1px) rotate(0deg);
+        }
+        70% {
+            transform: translate(3px, 1px) rotate(-1deg);
+        }
+        80% {
+            transform: translate(-1px, -1px) rotate(1deg);
+        }
+        90% {
+            transform: translate(1px, 2px) rotate(0deg);
+        }
+        100% {
+            transform: translate(1px, -2px) rotate(-1deg);
+        }
+    }
+</style>
+
+<body>
+    <div class="container">
+        <em><h1>Chavo's website</h1></em>
+        <em><h2>Hover The Image...</h2></em>
+        <img src="static/chavo.png" alt="Chavo" width="425" height="280">
+        <em><h2>Hi, this page has been hit {{ count }} times</em></h2>
+        <form method="post" action="/">
+            <input type="submit" name="action" value="Hit to Count" style="float: left">
+            <input type="submit" name="reset" value="Reset" style="float: right">
+        </form>
+</body>
+
+</html>
