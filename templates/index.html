@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
     @keyframes gradientBG {
         0% {
@@ -122,10 +121,15 @@
         <em><h2>Hover The Image...</h2></em>
         <img src="static/chavo.png" alt="Chavo" width="425" height="280">
         <em><h2>Hi, this page has been hit {{ count }} times</em></h2>
-        <form method="post" action="/">
-            <input type="submit" name="action" value="Hit to Count" style="float: left">
-            <input type="submit" name="reset" value="Reset" style="float: right">
-        </form>
+        <div style="width:400px;">
+            <form method="post">
+                <input type="submit" style="float: left" value="Hit to count">
+            </form>
+            <form method="get">
+                <input type="submit" style="float: right" value="Reset">
+            </form>
+        </div>
+    </div>
 </body>
 
 </html>
